@@ -1,35 +1,24 @@
-The Eddystone Observer scans for Eddystone beacons that are running the [Eddystone Service example](https://github.com/ARMmbed/mbed-os-example-ble/tree/master/BLE_EddystoneService) (see there for general information about Eddystone beacons). It reads the advertising packets broadcast by these beacons, and prints a human-readable version of the advertised URLs to the serial console.
+# ビーコン受信機
+MbedのBLE用サンプルプログラム「BLE_EddystoneObserverの拡張版」でアドバタイズのうちビーコンの信号
+と思しきものだけを処理(出力)するプログラム
 
-# Running the application
+元のサンプルプログラムのURL
+https://github.com/ARMmbed/mbed-os-example-ble/tree/master/BLE_EddystoneObserver
 
-## Requirements
+## 対応しているビーコン
+- EDDYSTONE
+- IBEACON
+- オムロン環境センサ(ビーコンモード)
+- AltBeacon
+- UCODE
 
-General hardware information is in the [main readme](https://github.com/ARMmbed/mbed-os-example-ble/blob/master/README.md).
+ただし，ほとんどのビーコンは現物を持っていないので，規格書等を見てコードを書いている都合上，正しく動作しないものも
+あるかもしれない(特に，EDDYSTONEのURL以外，AltBeacon, UCODE)．
 
-This sample requires two devices - one to [broadcast the beacon](https://github.com/ARMmbed/mbed-os-example-ble/tree/master/BLE_EddystoneService) and one to scan for the broadcast. If you have more devices, you can use them as extra beacons.
 
-You need a terminal program to listen to the observer's output through a serial port. You can download one, for example:
+## 動作確認済みプラットフォーム
+mbedで動作するnordicのnRF5xシリーズなら動作すると思うが，手元で確認したもの以下のもののみ．
+- スイッチサイエンスmbed TY51822
 
-* Tera Term for Windows.
-
-* CoolTerm for Mac OS X.
-
-* GNU Screen for Linux.
-
-## Building instructions
-
-Building instructions for all samples are in the [main readme](https://github.com/ARMmbed/mbed-os-example-ble/blob/master/README.md).
-
-1. Build and run the [Eddystone beacon](https://github.com/ARMmbed/mbed-os-example-ble/tree/master/BLE_EddystoneService) on one or more other devices.
-
-1. Build the Eddystone Observer application and install it on your board as explained in the building instructions. Leave the board connected to your computer.
-
-## Checking console output
-
-To see the application's output:
-
-1. Check which serial port your Eddystone Observer is connected to.
-
-1. Run a terminal program with the correct serial port and the baud rate set to 9600. For example, to use GNU Screen, run: ``screen /dev/tty.usbmodem1412 9600``.
-
-1. The Eddystone Observer should start printing URLs of nearby Eddystone beacons to the terminal.
+## 使い方
+オンラインIDEの「URL指定インポート」機能を使って，取り込んでください．
