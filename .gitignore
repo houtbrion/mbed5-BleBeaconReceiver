@@ -21,7 +21,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
@@ -30,4 +29,5 @@
 
 #vim 
 .*.sw[a-z]
-*.un
+*.un~
+*~
